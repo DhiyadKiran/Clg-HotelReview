@@ -16,32 +16,35 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.example.hotelreview.databinding.ActivityMainBinding;
+import com.example.hotelreview.databinding.ActivitySecondBinding;
+
 public class SecondActivity extends AppCompatActivity {
 
-    ImageView second_back_arrow,second_up_arrow;
-    TextView second_title,second_subtitle,second_rating_number,second_rating_number2,more_details;
-    RatingBar second_ratingbar;
-
     Animation from_left,from_right,from_bottom;
+    private ActivitySecondBinding binding;
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second);
+        binding = ActivitySecondBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        //load animations
+        from_bottom = AnimationUtils.loadAnimation(this,R.anim.anim_from_bottom);
+        from_right= AnimationUtils.loadAnimation(this,R.anim.anim_from_right);
+        from_left = AnimationUtils.loadAnimation(this,R.anim.anim_from_left);
+
+        //set Animation
+        binding.igBackArrow.setAnimation(from_left);
+        binding.txHotelName.setAnimation(from_right);
+        binding.rbRatingBar.setAnimation(from_left);
+        binding.txRatingNumber.setAnimation(from_right);
+        binding.igUpArrow.setAnimation(from_bottom);
+        binding.txMoreDetails.setAnimation(from_bottom);
 
 
-        second_back_arrow = findViewById(R.id.second_back_arrow);
-        second_up_arrow = findViewById(R.id.second_arrow_up);
-        second_title = findViewById(R.id.second_title);
-        second_subtitle = findViewById(R.id.second_subtitle);
-        second_rating_number = findViewById(R.id.second_rating_number);
-        second_rating_number2 = findViewById(R.id.second_rating_number2);
-        more_details = findViewById(R.id.more_details);
-        second_ratingbar = findViewById(R.id.second_ratingbar);
-
-
-        second_back_arrow.setOnClickListener(new View.OnClickListener() {
+        binding.igBackArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent =  new Intent(SecondActivity.this,MainActivity.class);
@@ -49,12 +52,22 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
+        binding.igUpArrow.setOnClickListener((view -> {
+
+            Intent intent = new Intent(SecondActivity.this,ThirdActivity.class);
+
+            Pair[] pairs = new  Pair[1];
+            pairs[0] = new Pair<View,String>(binding.igUpArrow,"background_image_transition");
+
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SecondActivity.this,pairs);
+            startActivity(intent);
+        }));
+
         //hide status bar and navigation bat at the  bottom
         getWindow().setFlags(
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         );
-
         this.getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
@@ -63,33 +76,5 @@ public class SecondActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
         );
-
-
-        //load animations
-        from_bottom = AnimationUtils.loadAnimation(this,R.anim.anim_from_bottom);
-        from_right= AnimationUtils.loadAnimation(this,R.anim.anim_from_right);
-        from_left = AnimationUtils.loadAnimation(this,R.anim.anim_from_left);
-
-        //set Animation
-        second_back_arrow.setAnimation(from_left);
-        second_title.setAnimation(from_right);
-        second_subtitle.setAnimation(from_right);
-        second_ratingbar.setAnimation(from_left);
-        second_rating_number.setAnimation(from_right);
-        second_rating_number2.setAnimation(from_right);
-        second_up_arrow.setAnimation(from_bottom);
-        more_details.setAnimation(from_bottom);
-
-        second_up_arrow.setOnClickListener((view -> {
-
-            Intent intent = new Intent(SecondActivity.this,ThirdActivity.class);
-
-            Pair[] pairs = new  Pair[1];
-            pairs[0] = new Pair<View,String>(second_up_arrow,"background_image_transition");
-
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SecondActivity.this,pairs);
-            startActivity(intent);
-        }));
-
     }
 }

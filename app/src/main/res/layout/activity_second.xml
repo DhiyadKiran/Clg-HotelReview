@@ -4,140 +4,93 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondActivity"
-    android:background="@drawable/background"
     android:transitionName="background_image_transition"
-    tools:targetApi="lollipop">
+    tools:context=".SecondActivity">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/second_back_arrow"
-        android:layout_marginStart="34dp"
-        android:layout_marginLeft="34dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="356dp"
-        android:layout_marginRight="356dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/igBackgroundHotelImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/ic_back_arrow"/>
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/background" />
+
+    <ImageView
+        android:id="@+id/igBackArrow"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="30dp"
+        android:src="@drawable/ic_back_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/txHotelName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/second_title"
-        android:layout_marginStart="18dp"
-        android:layout_marginLeft="18dp"
-        android:layout_marginEnd="18dp"
-        android:layout_marginRight="18dp"
-        android:layout_marginTop="480dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="40dp"
         android:fontFamily="@font/open_sans_extra_bold"
         android:text="THE START Hotel ,Casino &amp; SkyPod"
         android:textColor="@color/white"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/igUpArrow"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.111"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-    
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:id="@+id/second_subtitle"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginRight="18dp"
-        android:layout_marginEnd="18dp"
-        android:layout_marginLeft="18dp"
-        android:alpha="0.5"
-        android:fontFamily="@font/open_sans_regular"
-        android:text="Top Of the World is know as one of the most romantic restaurants in the city. It offer an intimate dining setting paired with an extravagnent view of the entire city,all encompassed in 360-degree..."
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/second_title"
-        app:layout_constraintTop_toBottomOf="@id/second_title"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <RatingBar
+        android:id="@+id/rbRatingBar"
+        style="?android:attr/ratingBarStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/second_ratingbar"
-        style="?android:attr/ratingBarStyleSmall"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="20dp"
         android:max="5"
         android:numStars="5"
         android:progressTint="#FFC107"
         android:rating="4.5"
         android:stepSize="0.5"
-        app:layout_constraintStart_toStartOf="@id/second_subtitle"
-        app:layout_constraintTop_toBottomOf="@id/second_subtitle"
-        tools:targetApi="lollipop"/>
+        app:layout_constraintStart_toStartOf="@+id/txHotelName"
+        app:layout_constraintTop_toBottomOf="@+id/txHotelName" />
 
     <TextView
+        android:id="@+id/txRatingNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/second_rating_number"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="20dp"
         android:fontFamily="@font/open_sans_bold"
-        android:textSize="15sp"
         android:text="4.75"
         android:textColor="@color/white"
-        app:layout_constraintStart_toEndOf="@id/second_ratingbar"
-        app:layout_constraintTop_toBottomOf="@id/second_subtitle"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/second_rating_number2"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:fontFamily="@font/open_sans_light"
-        android:text="(510)"
-        android:textColor="@color/white"
         android:textSize="15sp"
-        app:layout_constraintStart_toEndOf="@id/second_rating_number"
-        app:layout_constraintTop_toTopOf="@id/second_rating_number"/>
+        app:layout_constraintBottom_toBottomOf="@+id/rbRatingBar"
+        app:layout_constraintStart_toEndOf="@+id/rbRatingBar"
+        app:layout_constraintTop_toTopOf="@+id/rbRatingBar" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/second_arrow_up"
-        android:layout_marginStart="175dp"
-        android:layout_marginLeft="175dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="196dp"
-        android:layout_marginRight="196dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/second_ratingbar"
-        android:src="@drawable/ic_up_arrow"/>
+        android:id="@+id/igUpArrow"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_up_arrow"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/txMoreDetails"
+        app:layout_constraintEnd_toEndOf="@+id/txMoreDetails"
+        app:layout_constraintStart_toStartOf="@+id/txMoreDetails" />
 
     <TextView
+        android:id="@+id/txMoreDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/more_details"
-        android:layout_marginStart="150dp"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="20dp"
         android:fontFamily="@font/open_sans_light"
         android:text="More Details"
         android:textColor="@color/white"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/second_arrow_up"
-        app:layout_constraintVertical_bias="0.0"/>
-
-
-
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

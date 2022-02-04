@@ -1,7 +1,7 @@
 package com.example.hotelreview;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
@@ -9,56 +9,26 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.SearchView;
-import android.widget.TextView;
+
+import com.example.hotelreview.Adapter.HomeHotelRecyclerAdapter;
+import com.example.hotelreview.Model.HomeHotel;
+import com.example.hotelreview.databinding.ActivityMainBinding;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    CardView cardView,cardView2,cardView3;
-    ImageView imageView,profile;
-    TextView textView,textView2,textView3,textView4,textView5;
-    SearchView searchView;
-    Animation anim_from_button,anim_from_top,anim_from_left;
+    private ArrayList<HomeHotel> homeHotels;
+    private ActivityMainBinding binding;
 
-    @TargetApi(Build.VERSION_CODES.KITKAT)
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+         binding = ActivityMainBinding.inflate(getLayoutInflater());
+         setContentView(binding.getRoot());
 
-        cardView = findViewById(R.id.cardView);
-        cardView2 = findViewById(R.id.cardView2);
-        cardView3 = findViewById(R.id.cardView3);
-        imageView = findViewById(R.id.imageView);
-        textView = findViewById(R.id.firstText);
-        textView2 = findViewById(R.id.textView);
-        textView3 = findViewById(R.id.textView2);
-        textView4 = findViewById(R.id.textView3);
-        textView5 = findViewById(R.id.textView4);
-        searchView = findViewById(R.id.searchView);
-        profile = findViewById(R.id.profile);
 
-        //load animations
-        anim_from_button = AnimationUtils.loadAnimation(this,R.anim.anim_from_bottom);
-        anim_from_top = AnimationUtils.loadAnimation(this,R.anim.anim_from_top);
-        anim_from_left = AnimationUtils.loadAnimation(this,R.anim.anim_from_left);
-
-        // set Animation
-        cardView.setAnimation(anim_from_button);
-        cardView2.setAnimation(anim_from_button);
-        cardView3.setAnimation(anim_from_top);
-        imageView.setAnimation(anim_from_top);
-        textView.setAnimation(anim_from_top);
-        textView2.setAnimation(anim_from_top);
-        textView3.setAnimation(anim_from_top);
-        textView4.setAnimation(anim_from_top);
-        textView5.setAnimation(anim_from_top);
-        searchView.setAnimation(anim_from_left);
-
-        profile.setOnClickListener(new View.OnClickListener() {
+        binding.igProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent secondActivity = new Intent(MainActivity.this,ProfileActivity.class);
@@ -66,29 +36,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent secondActivity = new Intent(MainActivity.this,SecondActivity.class);
-                startActivity(secondActivity);
-            }
-        });
+        homeHotels = new ArrayList<>();
+        homeHotels.add(new HomeHotel(R.drawable.image_one,"The START Hotel,Casino & Skypod", 4.5F,"4.5"));
+        homeHotels.add(new HomeHotel(R.drawable.image_two,"Sky Bar at Waldorf Astoria", 4.3F,"4.3"));
+        homeHotels.add(new HomeHotel(R.drawable.image_three,"The Boulevard Pool at The Cosmopolitan", 4F,"4"));
+        homeHotels.add(new HomeHotel(R.drawable.image_one,"The START Hotel & Skypod", 5F,"5"));
+        homeHotels.add(new HomeHotel(R.drawable.image_two,"The START Hotel,Casino & Skypod", 4.5F,"4.5"));
 
-        cardView2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent secondActivity = new Intent(MainActivity.this,SecondActivity.class);
-                startActivity(secondActivity);
-            }
-        });
-
-        cardView3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent secondActivity = new Intent(MainActivity.this,SecondActivity.class);
-                startActivity(secondActivity);
-            }
-        });
+        HomeHotelRecyclerAdapter homeHotelRecyclerAdapter =new HomeHotelRecyclerAdapter(MainActivity.this,homeHotels);
+        GridLayoutManager gridLayoutManager =new GridLayoutManager(MainActivity.this,1);
+        binding.rvHomeHotel.setLayoutManager(gridLayoutManager);
+        binding.rvHomeHotel.setAdapter(homeHotelRecyclerAdapter);
 
         //hide status bar and navigation bat at the  bottom
         getWindow().setFlags(
