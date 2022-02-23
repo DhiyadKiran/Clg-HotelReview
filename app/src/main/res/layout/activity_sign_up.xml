@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D9DCD9"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".signUp">
@@ -21,23 +20,23 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="120dp"
             android:paddingBottom="10dp"
-            app:srcCompat="@drawable/logo" />
+            app:srcCompat="@drawable/hotel1" />
 
         <EditText
             android:id="@+id/edUserName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="@color/white"
+            android:background="@drawable/border"
             android:ems="10"
-            android:hint="Name"
+            android:hint=" Name"
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:padding="9dp"
-            android:textColor="#0E0E0E"
-            android:textColorHint="#838282" />
+            android:textColor="@color/black"
+            android:textColorHint="@color/lightblack" />
 
 
         <EditText
@@ -45,14 +44,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="@color/white"
+            android:background="@drawable/border"
             android:ems="10"
-            android:hint="Email"
+            android:hint=" Email"
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
             android:padding="9dp"
-            android:textColor="#040404"
-            android:textColorHint="#838282" />
+            android:textColor="@color/black"
+            android:textColorHint="@color/lightblack" />
 
         <EditText
             android:id="@+id/edPassword"
@@ -60,70 +59,70 @@
             android:layout_height="wrap_content"
 
             android:layout_margin="10dp"
-            android:background="@color/white"
+            android:background="@drawable/border"
             android:ems="10"
-            android:hint="Password"
+            android:hint=" Password"
             android:inputType="textPassword"
             android:minHeight="48dp"
             android:padding="9dp"
-            android:textColor="#040404"
-            android:textColorHint="#838282" />
+            android:textColor="@color/black"
+            android:textColorHint="@color/lightblack" />
 
         <TextView
             android:id="@+id/txClickSignUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-
             android:gravity="center"
             android:padding="9dp"
             android:text="Already Have A Account ?"
-            android:textColor="#0E0E0E"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="16sp" />
 
         <Button
             android:id="@+id/btnSignUp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:backgroundTint="#28532A"
+            android:background="@drawable/border"
             android:text="Sign Up"
-            android:textColor="#FAF8F8"
+            android:textColor="@color/white"
             android:textSize="20sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="horizontal">-->
 
-            <Button
-                android:id="@+id/btnGoogle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/white"
-                android:drawableLeft="@drawable/google"
-                android:text="Google"
-                android:textColor="@color/black"
-                android:textColorHint="#0B0A0A"
-                android:textSize="14sp" />
+<!--            <Button-->
+<!--                android:id="@+id/btnGoogle"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginRight="10dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:backgroundTint="@color/white"-->
+<!--                android:drawableLeft="@drawable/google"-->
+<!--                android:text="Google"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="14sp" />-->
 
-            <Button
-                android:id="@+id/btnFb"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:backgroundTint="#27406C"
-                android:drawableLeft="@drawable/facebook"
-                android:text="FaceBook"
-                android:textColor="#F3EFEF"
-                android:textSize="14sp" />
+<!--            <Button-->
+<!--                android:id="@+id/btnFb"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="10dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:backgroundTint="#27406C"-->
+<!--                android:drawableLeft="@drawable/facebook"-->
+<!--                android:text="FaceBook"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="14sp" />-->
 
-        </LinearLayout>
+<!--        </LinearLayout>-->
+
+
     </LinearLayout>
 
 

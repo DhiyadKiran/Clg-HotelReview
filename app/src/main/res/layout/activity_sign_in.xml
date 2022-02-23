@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D9DCD9"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".SignIn">
@@ -21,9 +20,9 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="120dp"
             android:paddingBottom="10dp"
-            app:srcCompat="@drawable/logo" />
+            app:srcCompat="@drawable/hotel1" />
 
 
         <EditText
@@ -31,28 +30,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="@color/white"
+            android:background="@drawable/border"
             android:ems="10"
-            android:hint="Email"
+            android:hint=" Email"
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
             android:padding="9dp"
-            android:textColor="#040404"
-            android:textColorHint="#838282" />
+            android:textColor="@color/black"
+            android:textColorHint="@color/lightblack" />
 
         <EditText
             android:id="@+id/edPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="@color/white"
+            android:background="@drawable/border"
             android:ems="10"
-            android:hint="Password"
+            android:hint=" Password"
             android:inputType="textPassword"
             android:minHeight="48dp"
             android:padding="9dp"
-            android:textColor="#040404"
-            android:textColorHint="#838282" />
+            android:textColor="@color/black"
+            android:textColorHint="@color/lightblack" />
 
         <TextView
             android:id="@+id/txClickSignUp"
@@ -61,22 +60,21 @@
             android:layout_gravity="right"
             android:gravity="right"
             android:padding="9dp"
+            android:textStyle="bold"
             android:text="Click For Sign Up"
-            android:textColor="#0E0E0E"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
         <Button
             android:id="@+id/btnSignIn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:backgroundTint="#28532A"
+            android:background="@drawable/border"
             android:text="Sign In"
-            android:textColor="#FAF8F8"
+            android:textColor="@color/white"
             android:textSize="20sp" />
-
-
 
     </LinearLayout>
 

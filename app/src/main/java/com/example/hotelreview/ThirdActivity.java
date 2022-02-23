@@ -19,8 +19,6 @@ import com.example.hotelreview.databinding.ActivityThirdBinding;
 
 public class ThirdActivity extends AppCompatActivity {
 
-    ImageView down_arrow;
-    ScrollView third_scrollview;
     Animation from_bottom;
     private ActivityThirdBinding binding;
 
@@ -31,23 +29,33 @@ public class ThirdActivity extends AppCompatActivity {
         binding = ActivityThirdBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-//        down_arrow = findViewById(R.id.down_arrow);
-//        third_scrollview = findViewById(R.id.third_scrollview);
-
         from_bottom = AnimationUtils.loadAnimation(this,R.anim.anim_from_bottom);
 
         binding.igDownArrow.setAnimation(from_bottom);
-        binding.svScrollView.setAnimation(from_bottom);
+        binding.linearLayout.setAnimation(from_bottom);
 
 
         binding.igDownArrow.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ThirdActivity.this,SecondActivity.class);
 
                 Pair[] pairs = new  Pair[1];
                 pairs[0] = new Pair<View,String>(binding.igDownArrow,"background_image_transition");
+
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(ThirdActivity.this,pairs);
+                startActivity(intent,options.toBundle());
+            }
+        });
+
+
+        binding.btnRoadMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ThirdActivity.this,HotelDetailActivity.class);
+
+                Pair[] pairs = new  Pair[1];
+                pairs[0] = new Pair<View,String>(binding.btnRoadMap,"background_image_transition");
 
                 ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(ThirdActivity.this,pairs);
                 startActivity(intent,options.toBundle());

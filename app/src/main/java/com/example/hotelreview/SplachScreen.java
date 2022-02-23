@@ -1,8 +1,11 @@
 package com.example.hotelreview;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.animation.Animation;
@@ -17,6 +20,8 @@ public class SplachScreen extends AppCompatActivity {
     private static  int SPLACH_SCREEN = 3000;
     Animation anim_from_bottom,anim_from_top;
     private ActivitySplachScreenBinding binding;
+    private SharedPreferences spf;
+    private String Name;
 
 
     @Override
@@ -25,6 +30,9 @@ public class SplachScreen extends AppCompatActivity {
         binding = ActivitySplachScreenBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        spf = this.getSharedPreferences("UserDetails" , Context.MODE_PRIVATE);
+        Name = spf.getString("UserName" , null);
+
 
         //load animations
         anim_from_bottom = AnimationUtils.loadAnimation(this,R.anim.anim_from_bottom);
@@ -32,15 +40,20 @@ public class SplachScreen extends AppCompatActivity {
 
 
         //set Animations
-        binding.igSplashImage.setAnimation(anim_from_top);
-        binding.txSplashScreen.setAnimation(anim_from_bottom);
-        binding.txSplashScreen2.setAnimation(anim_from_bottom);
-        binding.txSplashScreen3.setAnimation(anim_from_bottom);
+        binding.txHotelReview.setAnimation(anim_from_top);
+
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplachScreen.this,SignIn.class);
+
+
+                Intent intent;
+                if(Name == null){
+                    intent = new Intent(SplachScreen.this, SignIn.class);
+                }else {
+                    intent = new Intent(SplachScreen.this, MainActivity.class);
+                }
                 startActivity(intent);
                 finish();
             }

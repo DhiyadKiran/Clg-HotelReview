@@ -45,6 +45,7 @@ public class HomeHotelRecyclerAdapter extends RecyclerView.Adapter<HomeHotelRecy
         holder.binding.txHotelName.setText(homeHotel.getHotelName());
         holder.binding.rbRatingBar.setRating(homeHotel.getHotelRating());
         holder.binding.txRatingNumber.setText(homeHotel.getHotelRatingNumber());
+        holder.binding.txCityName.setText(homeHotel.getCityName());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

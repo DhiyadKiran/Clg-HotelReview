@@ -37,11 +37,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         homeHotels = new ArrayList<>();
-        homeHotels.add(new HomeHotel(R.drawable.image_one,"The START Hotel,Casino & Skypod", 4.5F,"4.5"));
-        homeHotels.add(new HomeHotel(R.drawable.image_two,"Sky Bar at Waldorf Astoria", 4.3F,"4.3"));
-        homeHotels.add(new HomeHotel(R.drawable.image_three,"The Boulevard Pool at The Cosmopolitan", 4F,"4"));
-        homeHotels.add(new HomeHotel(R.drawable.image_one,"The START Hotel & Skypod", 5F,"5"));
-        homeHotels.add(new HomeHotel(R.drawable.image_two,"The START Hotel,Casino & Skypod", 4.5F,"4.5"));
+        homeHotels.add(new HomeHotel(R.drawable.image_one,"The START Hotel,Casino & Skypod","New York", 4.5F,"4.5"));
+        homeHotels.add(new HomeHotel(R.drawable.image_two,"Sky Bar at Waldorf Astoria", "London",4.3F,"4.3"));
+        homeHotels.add(new HomeHotel(R.drawable.image_three,"The Boulevard Pool at The Cosmopolitan","Dubai", 4F,"4"));
+        homeHotels.add(new HomeHotel(R.drawable.image_one,"The Grand Thakkar","Mumbai", 5F,"5"));
+        homeHotels.add(new HomeHotel(R.drawable.image_two,"The Royal Palace","Paris", 4.5F,"4.5"));
 
         HomeHotelRecyclerAdapter homeHotelRecyclerAdapter =new HomeHotelRecyclerAdapter(MainActivity.this,homeHotels);
         GridLayoutManager gridLayoutManager =new GridLayoutManager(MainActivity.this,1);

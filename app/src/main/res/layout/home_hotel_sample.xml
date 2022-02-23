@@ -35,7 +35,7 @@
 
             <TextView
                 android:id="@+id/txHotelName"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:layout_marginStart="16dp"
@@ -72,6 +72,20 @@
                 app:layout_constraintBottom_toBottomOf="@+id/rbRatingBar"
                 app:layout_constraintStart_toEndOf="@+id/rbRatingBar"
                 app:layout_constraintTop_toTopOf="@+id/rbRatingBar" />
+
+            <TextView
+                android:id="@+id/txCityName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="18dp"
+                android:fontFamily="@font/open_sans_extra_bold"
+                android:text="New York"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txRatingNumber" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
