@@ -3,55 +3,53 @@ package com.example.hotelreview.Model;
 import android.media.Rating;
 
 public class HomeHotel {
-  private   int HotelImage ;
-  private  String HotelName,HotelRatingNumber,CityName;
-  private Float  HotelRating;
+  String id,name,city,rating,mainimage;
 
-  public HomeHotel(int hotelImage, String hotelName,String cityName, Float hotelRating, String hotelRatingNumber) {
-    HotelImage = hotelImage;
-    HotelRatingNumber = hotelRatingNumber;
-    CityName = cityName;
-    HotelName = hotelName;
-    HotelRating = hotelRating;
+  public HomeHotel(String id, String name, String city, String rating, String mainimage) {
+    this.id = id;
+    this.name = name;
+    this.city = city;
+    this.rating = rating;
+    this.mainimage = mainimage;
   }
 
-  public String getCityName() {
-    return CityName;
+  public String getId() {
+    return id;
   }
 
-  public void setCityName(String cityName) {
-    CityName = cityName;
+  public void setId(String id) {
+    this.id = id;
   }
 
-  public int getHotelImage() {
-    return HotelImage;
+  public String getName() {
+    return name;
   }
 
-  public void setHotelImage(int hotelImage) {
-    HotelImage = hotelImage;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public String getHotelRatingNumber() {
-    return HotelRatingNumber;
+  public String getCity() {
+    return city;
   }
 
-  public void setHotelRatingNumber(String hotelRatingNumber) {
-    HotelRatingNumber = hotelRatingNumber;
+  public void setCity(String city) {
+    this.city = city;
   }
 
-  public String getHotelName() {
-    return HotelName;
+  public String getRating() {
+    return rating;
   }
 
-  public void setHotelName(String hotelName) {
-    HotelName = hotelName;
+  public void setRating(String rating) {
+    this.rating = rating;
   }
 
-  public Float getHotelRating() {
-    return HotelRating;
+  public String getMainimage() {
+    return mainimage;
   }
 
-  public void setHotelRating(Float hotelRating) {
-    HotelRating = hotelRating;
+  public void setMainimage(String mainimage) {
+    this.mainimage = mainimage;
   }
 }

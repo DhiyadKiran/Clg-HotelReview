@@ -4,7 +4,9 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityOptions;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Pair;
@@ -14,13 +16,18 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.example.hotelreview.Api.ApiUtilities;
 import com.example.hotelreview.databinding.ActivityThirdBinding;
 
 public class ThirdActivity extends AppCompatActivity {
 
     Animation from_bottom;
     private ActivityThirdBinding binding;
+    private SharedPreferences spf;
+    private  String image;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -32,7 +39,19 @@ public class ThirdActivity extends AppCompatActivity {
         from_bottom = AnimationUtils.loadAnimation(this,R.anim.anim_from_bottom);
 
         binding.igDownArrow.setAnimation(from_bottom);
-        binding.linearLayout.setAnimation(from_bottom);
+//        binding.linearLayout.setAnimation(from_bottom);
+
+        spf = this.getSharedPreferences("HotelDetails" , Context.MODE_PRIVATE);
+        binding.txHotelName.setText(spf.getString("name" , null));
+        binding.txRatingNumber.setText(spf.getString("rating" , null));
+        binding.rbRatingBar.setRating(Float.parseFloat(spf.getString("rating",null)));
+        binding.txAboutText.setText(spf.getString("about",null));
+        image = spf.getString("mainimage",null);
+        Glide.with(ThirdActivity.this).load(ApiUtilities.imageUrl+image).into(binding.igHotelImage);
+//        Toast.makeText(this, ""+image, Toast.LENGTH_SHORT).show();
+
+
+
 
 
         binding.igDownArrow.setOnClickListener(new View.OnClickListener() {

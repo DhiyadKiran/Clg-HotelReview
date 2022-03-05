@@ -6,11 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.example.hotelreview.Api.ApiUtilities;
 import com.example.hotelreview.MainActivity;
 import com.example.hotelreview.Model.HomeHotel;
 import com.example.hotelreview.R;
@@ -18,15 +21,16 @@ import com.example.hotelreview.SecondActivity;
 import com.example.hotelreview.databinding.HomeHotelSampleBinding;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HomeHotelRecyclerAdapter extends RecyclerView.Adapter<HomeHotelRecyclerAdapter.viewHolder>{
 
     Context context;
-    ArrayList<HomeHotel> homeHotels;
+    List<HomeHotel> data;
 
-    public HomeHotelRecyclerAdapter(Context context, ArrayList<HomeHotel> homeHotels) {
+    public HomeHotelRecyclerAdapter(Context context, List<HomeHotel> data) {
         this.context = context;
-        this.homeHotels = homeHotels;
+        this.data = data;
     }
 
     @NonNull
@@ -39,19 +43,23 @@ public class HomeHotelRecyclerAdapter extends RecyclerView.Adapter<HomeHotelRecy
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-        HomeHotel homeHotel = homeHotels.get(position);
 
-        holder.binding.igHotelImage.setImageResource(homeHotel.getHotelImage());
-        holder.binding.txHotelName.setText(homeHotel.getHotelName());
-        holder.binding.rbRatingBar.setRating(homeHotel.getHotelRating());
-        holder.binding.txRatingNumber.setText(homeHotel.getHotelRatingNumber());
-        holder.binding.txCityName.setText(homeHotel.getCityName());
+        HomeHotel homeHotel = data.get(position);
+
+        holder.binding.txHotelName.setText(homeHotel.getName());
+        holder.binding.txCityName.setText(homeHotel.getCity());
+        holder.binding.txRatingNumber.setText(homeHotel.getRating());
+        holder.binding.rbRatingBar.setRating(Float.parseFloat(homeHotel.getRating()));
+//        Toast.makeText(context, ""+ApiUtilities.imageUrl+homeHotel.getMainimage(), Toast.LENGTH_SHORT).show();
+        Glide.with(context).load(ApiUtilities.imageUrl+homeHotel.getMainimage()).into(holder.binding.igHotelImage);
+
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context,SecondActivity.class);
-                context.startActivity(intent);
+                Intent i = new Intent(context, SecondActivity.class);
+                i.putExtra("id",homeHotel.getId());
+                context.startActivity(i);
             }
         });
 
@@ -59,7 +67,7 @@ public class HomeHotelRecyclerAdapter extends RecyclerView.Adapter<HomeHotelRecy
 
     @Override
     public int getItemCount() {
-        return homeHotels.size();
+        return data.size();
     }
 
 

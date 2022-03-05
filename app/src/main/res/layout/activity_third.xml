@@ -25,154 +25,103 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <ScrollView-->
-<!--        android:id="@+id/svScrollView"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:layout_marginStart="15dp"-->
-<!--        android:layout_marginLeft="15dp"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:layout_marginEnd="15dp"-->
-<!--        android:layout_marginRight="15dp"-->
-<!--        android:scrollbars="none"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/igHotelImage">-->
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginRight="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/igHotelImage">
+    <TextView
+        android:id="@+id/txHotelName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_16mdp"
+        android:layout_marginTop="@dimen/_16mdp"
+        android:layout_marginRight="@dimen/_16mdp"
+        android:fontFamily="@font/open_sans_extra_bold"
+        android:text="The START Hotel, Casino  &amp; SkyPod"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/igHotelImage" />
 
-            <TextView
-                android:id="@+id/txHotelName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/open_sans_extra_bold"
-                android:text="The START Hotel, Casino  &amp; SkyPod"
-                android:textColor="@color/black"
-                android:textSize="24sp" />
-
-            <LinearLayout
-
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal">
-
-                <RatingBar
-                    android:id="@+id/rbRatingBar"
-                    style="?android:attr/ratingBarStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:max="5"
-                    android:numStars="5"
-                    android:progressTint="#FFC107"
-                    android:rating="4.5"
-                    android:stepSize="0.5"
-                    tools:targetApi="lollipop" />
-
-                <TextView
-                    android:id="@+id/txRatingNumber"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:fontFamily="@font/open_sans_bold"
-                    android:text="4.75"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
-
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/txAbout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/open_sans_bold"
-                android:text="About"
-                android:textColor="@color/black"
-                android:textSize="15sp" />
-
-            <ScrollView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/txAboutText"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_130mdp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/open_sans_regular"
-                android:text="Top Of the World is know as one of the most romantic restaurants in the city. It offer an intimate dining setting paired with an extravagnent view of the entire city,all encompassed in 360-degree revolving frame. Yes, that's right , this restaurant  allow diners the opportunity to see las vegas in tis entirety if  they're able to stay for at least 80 minutes , the time needed for one full rotation.   "
-                android:textColor="#333333"
-                android:textSize="15sp" />
-            </ScrollView>
+    <RatingBar
+        android:id="@+id/rbRatingBar"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="@dimen/_8mdp"
+        android:max="5"
+        android:numStars="5"
+        android:progressTint="#FFC107"
+        android:rating="4.5"
+        android:stepSize="0.5"
+        app:layout_constraintStart_toStartOf="@+id/txHotelName"
+        app:layout_constraintTop_toBottomOf="@+id/txHotelName"
+        tools:targetApi="lollipop" />
 
 
-            <!--            <TextView-->
-<!--                android:id="@+id/txVenueType"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:fontFamily="@font/open_sans_bold"-->
-<!--                android:text="Venue Type"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="15sp" />-->
+    <TextView
+        android:id="@+id/txRatingNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16mdp"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="4.75"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/rbRatingBar"
+        app:layout_constraintStart_toEndOf="@+id/rbRatingBar"
+        app:layout_constraintTop_toTopOf="@+id/rbRatingBar" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/txRestaurant"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:alpha="0.5"-->
-<!--                android:fontFamily="@font/open_sans_regular"-->
-<!--                android:text="Restaurant"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="15sp" />-->
 
-<!--            <TextView-->
-<!--                android:id="@+id/txVenueTypeText"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:alpha="0.5"-->
-<!--                android:fontFamily="@font/open_sans_regular"-->
-<!--                android:text="Top Of the World is know as one of the most romantic restaurants in the city. It offer an intimate dining setting paired with an extravagnent view of the entire city,all encompassed in 360-degree revolving frame. Yes, that's right , this restaurant  allow diners the opportunity to see las vegas in tis entirety if  they're able to stay for at least 80 minutes  "-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="15sp" />-->
+    <TextView
+        android:id="@+id/txAbout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16mdp"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="About"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/rbRatingBar"
+        app:layout_constraintTop_toBottomOf="@+id/rbRatingBar" />
 
-            <Button
-                android:id="@+id/btnRoadMap"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"
-                android:background="@drawable/custom_button"
-                android:drawableEnd="@drawable/ic_steps"
-                android:drawableRight="@drawable/ic_steps"
-                android:fontFamily="@font/open_sans_extra_bold"
-                android:paddingLeft="50dp"
-                android:paddingRight="50dp"
-                android:text="CHECK  ROADMAP"
-                android:textColor="@color/white"
-                android:textSize="15sp" />
 
-        </LinearLayout>
+    <TextView
+        android:id="@+id/txAboutText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_16mdp"
+        android:scrollbars="horizontal"
+        android:layout_marginBottom="@dimen/_8mdp"
+        android:layout_marginTop="@dimen/_8mdp"
+        android:layout_marginRight="@dimen/_16mdp"
+        android:fontFamily="@font/open_sans_regular"
+        android:text="Top Of the World is know as one of the most romantic restaurants in the city. It offer an intimate dining setting paired with an extravagnent view of the entire city,all encompassed in 360-degree revolving frame. Yes, that's right , this restaurant  allow diners the opportunity to see las vegas in tis entirety if  they're able to stay for at least 80 minutes , the time needed for one full rotation.   "
+        android:textColor="#333333"
+        android:textSize="@dimen/_12font_mdp"
+        app:layout_constraintBottom_toTopOf="@+id/btnRoadMap"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txAbout" />
 
-<!--    </ScrollView>-->
+    <Button
+        android:id="@+id/btnRoadMap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/_16mdp"
+        android:layout_marginLeft="@dimen/_16mdp"
+        android:layout_marginBottom="@dimen/_16mdp"
+        android:background="@drawable/custom_button"
+        android:drawableEnd="@drawable/ic_steps"
+        android:drawableRight="@drawable/ic_steps"
+        android:fontFamily="@font/open_sans_extra_bold"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:text="CHECK  ROADMAP"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12font_mdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
